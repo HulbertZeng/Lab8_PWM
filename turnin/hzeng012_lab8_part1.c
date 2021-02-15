@@ -52,7 +52,6 @@ void TickFct() {
             PWM_State = PWM_Silent;
             break;
         case PWM_Silent:
-            button = (~PINA) & 0x07;
             if (old != button) {
                 old = button;
                 if (button == 0x01){
@@ -99,7 +98,7 @@ int main(void) {
     PWM_State = PWM_SMStart;
     /* Insert your solution below */
     while (1) {
-        TickFct(old, button);
+        TickFct();
     }
     return 1;
 }
